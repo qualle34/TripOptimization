@@ -1,0 +1,6 @@
+rootProject.name = 'TripOptimization'
+
+include 'backend'
+include 'api'
+include 'web'
+
