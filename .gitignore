@@ -1,3 +1,10 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
 ### STS ###
 .apt_generated
 .classpath
@@ -19,13 +26,12 @@ out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 
-### Gradle ###
-.gradle
-**/build/
-!src/**/build/
-gradle-app.setting
-!gradle-wrapper.jar
-!gradle-wrapper.properties
-.gradletasknamecache
-!**/src/main/**/build/
-!**/src/test/**/build/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
