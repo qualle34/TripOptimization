@@ -14,8 +14,8 @@ public interface UserClient {
     @GetMapping(value = "/users/{id}")
     EntityModel<User> getUser(@PathVariable("id") Long id);
 
-    @GetMapping(value = "/users/{login}")
-    EntityModel<User> getUserByLogin(@PathVariable("login") String login); // todo
+    @GetMapping(value = "/users/search/findUserByLogin?login={login}")
+    EntityModel<User> getUserByLogin(@PathVariable("login") String login);
 
     @GetMapping(value = "/users")
     CollectionModel<User> getAllUsers();
