@@ -12,14 +12,14 @@
   <li id="manager-profile" th:if="${#lists.contains(authorities, 'MANAGER')}"><a href="/admin"><span class="case"></span> Профиль </a></li>
   <li id="manager-employees" th:if="${#lists.contains(authorities, 'MANAGER')}"><a href="/admin"><span class="case"></span> Сотрудники </a></li>
 
-  <li id="admin-trips" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin"><span class="case"></span> Командировки </a></li>
-  <li id="admin-employees" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin"><span class="case"></span> Сотрудники </a></li>
-  <li id="admin-departments" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin"><span class="case"></span> Отделы </a></li>
-  <li id="admin-countries" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin"><span class="case"></span> Страны </a></li>
-  <li id="admin-tickets" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin"><span class="case"></span> Билеты </a></li>
+  <li id="admin-trips" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin/trips"><span class="case"></span> Командировки </a></li>
+  <li id="admin-employees" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin/employees"><span class="case"></span> Сотрудники </a></li>
+  <li id="admin-departments" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin/departments"><span class="case"></span> Отделы </a></li>
+  <li id="admin-countries" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin/countries"><span class="case"></span> Страны </a></li>
+  <li id="admin-tickets" th:if="${#lists.contains(authorities, 'ADMIN')}"><a href="/admin/tickets"><span class="case"></span> Билеты </a></li>
 
-  <li id="logout" th:if="${#lists.isEmpty(authorities)}"><a href="/admin"><span class="case"></span> Выход </a></li>
-  <li id="login" th:if="${#lists.isEmpty(authorities)}"><a href="/admin"><span class="case"></span> Вход </a></li>
+  <li id="logout" th:if="${#lists.isEmpty(authorities) != true}"><a href="/logout"><span class="case"></span> Выход </a></li>
+  <li id="login" th:if="${#lists.isEmpty(authorities)}"><a href="/login"><span class="case"></span> Вход </a></li>
 </ul>
 
 </body>
