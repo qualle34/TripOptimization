@@ -1,8 +1,17 @@
-a {
+html {
     font-family: 'Open Sans', sans-serif;
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
-    color: #2f89fc;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+table {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: #151515;
     text-decoration: none;
 }
