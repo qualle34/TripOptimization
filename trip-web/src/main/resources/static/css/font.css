@@ -1,0 +1,8 @@
+a {
+    font-family: 'Open Sans', sans-serif;
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease;
+    color: #2f89fc;
+    text-decoration: none;
+}

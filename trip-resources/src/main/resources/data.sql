@@ -31,8 +31,35 @@ INSERT INTO trip(title, description, place, date_start, date_end, expenses) valu
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Manufacturing', 'Test text: Ariadne', 'Тверь', '2020-12-21 04:37:51-00', '2023-12-13 10:36:04-00', 158);
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Legal', 'Test text: Atalanta', 'Самара', '2018-01-14 04:32:38-00', '2023-07-25 20:49:43-00', 23);
 
-
 INSERT INTO member(user_id, trip_id, role) values(6, 1, 'Product Administrator');
 INSERT INTO member(user_id, trip_id, role) values(6, 2, 'Direct Technician');
 INSERT INTO member(user_id, trip_id, role) values(6, 3, 'Construction Engineer');
 INSERT INTO member(user_id, trip_id, role) values(6, 4, 'Engineer');
+
+INSERT INTO country(value) values('Belarus');
+INSERT INTO country(value) values('USA');
+INSERT INTO country(value) values('Russia');
+INSERT INTO country(value) values('Poland');
+INSERT INTO country(value) values('England');
+INSERT INTO country(value) values('Japan');
+
+INSERT INTO transport(value) values('BUS');
+INSERT INTO transport(value) values('TRAIN');
+INSERT INTO transport(value) values('PLANE');
+INSERT INTO transport(value) values('CAR');
+INSERT INTO transport(value) values('TAXI');
+
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(1, 'Уругвай, Тверь', 'Румыния, Саратов', '2023-01-13 05:20:58-00', 325, 1);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(2, 'Парагвай, Пенза', 'Мавритания, Пермь', '2019-06-30 17:58:55-00', 531, 2);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(3, 'Антильские Острова (не признана), Барнаул', 'Израиль, Пермь', '2017-11-11 06:39:12-00', 282, 2);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(4, 'Гайана, Липецк', 'Казахстан, Оренбург', '2019-09-15 14:13:52-00', 197, 3);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(1, 'Япония, Ульяновск', 'Уругвай, Нижний Новгород', '2023-04-15 06:45:45-00', 415, 4);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(2, 'Япония, Красноярск', 'Республика Конго, Тверь', '2023-05-01 07:42:35-00', 338, 5);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(3, 'Гана, Тула', 'Таиланд, Саратов', '2018-02-05 04:00:31-00', 540, 4);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(4, 'Саудовская Аравия, Владивосток', 'Гамбия, Киров', '2018-12-06 04:25:42-00', 657, 1);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(1, 'Мексика, Ижевск', 'Украина, Киров', '2022-10-25 02:30:37-00', 13, 2);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(2, 'Монако, Тула', 'Словения, Тверь', '2023-05-14 20:11:20-00', 689, 3);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(3, 'Финляндия, Томск', 'Тайвань (не признана), Новосибирск', '2017-05-19 22:58:23-00', 364, 4);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(4, 'Гвинея, Омск', 'Исландия, Волгоград', '2024-02-21 05:05:52-00', 218, 4);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(1, 'Тувалу, Ростов-на-Дону', 'Италия, Омск', '2024-08-26 06:43:55-00', 8, 1);
+INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(2, 'Гондурас, Волгоград', 'Демократическая Республика, Томск', '2021-06-15 08:57:31-00', 113, 2);

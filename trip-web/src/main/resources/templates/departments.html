@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../static/css/trips.css" th:href="@{/css/trips.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/employees.css" th:href="@{/css/employees.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/font.css" th:href="@{/css/font.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" th:href="@{/css/sidebar.css}"/>
     <link rel="stylesheet" type="text/css" href="../static/css/table.css" th:href="@{/css/table.css}"/>
@@ -25,17 +25,15 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Title</th>
+                <th>Name</th>
                 <th>Description</th>
-                <th>Start</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="trip : ${trips}">
-                <td th:text="${trip.id}"></td>
-                <td th:text="${trip.title}"></td>
-                <td th:text="${trip.description}"></td>
-                <td th:text="${trip.start}"></td>
+            <tr th:each="department : ${departments}">
+                <td th:text="${department.id}"></td>
+                <td th:text="${department.name}"></td>
+                <td th:text="${department.description}"></td>
             </tr>
             <tbody>
         </table>

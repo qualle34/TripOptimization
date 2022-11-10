@@ -31,7 +31,7 @@ public class Ticket {
 
     private double price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Transport type;
 
     @ManyToOne(fetch = FetchType.LAZY)
