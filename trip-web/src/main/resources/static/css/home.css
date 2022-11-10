@@ -1,170 +1,31 @@
-body {
+html, body {
     margin: 0 !important;
     padding: 0 !important;
-}
-
-#wrapper {
-    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
 }
 
 .wrapper {
-    width: 100%;
-    padding-top: 75px;
-}
-
-/*  main  */
-/**************************************************/
-main {
-    width: 100%;
-}
-
-.d-flex {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-}
-
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
-
-a {
-    -webkit-transition: .3s all ease;
-    -o-transition: .3s all ease;
-    transition: .3s all ease;
-    color: #2f89fc;
-    text-decoration: none;
-}
-
-
-/*  content  */
-/**************************************************/
-
-#content {
-    width: 100%;
+    display: flex;
     padding: 0;
-    min-height: 100vh;
-    -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-    background-color: #E5EAFB;
-}
-
-.p-4 {
-    padding: 3rem !important;
-    padding-top: 3rem !important;
-}
-
-.box table {
     width: 100%;
+    height: 100%;
 }
 
-.box table tr:nth-child(even) {
-    background: #f9f9f9;
-    border: 0;
+.sidebar {
+    flex: 1;
+    width: 20%;
 }
 
-.box table {
-    width: 100%;
-    table-layout: fixed;
+.content {
+    flex: 2;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
 }
 
-.box table td {
-    padding: 20px;
-    position: relative;
-}
-
-.box table tr a {
-    color: #4d4d4d;
-    padding: 20px;
-}
-
-.box .info {
-    padding: 30px;
-    position: relative;
-    background: white;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-.add-box {
-    width: 300px;
-    display: inline-block;
-    padding: 20px;
-    text-align: center;
-    margin: 20px 50px 20px 0;
-    background: white;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-
-.info .update {
-    position: absolute;
-    right: 39px;
-    top: 6px;
-}
-
-.info .update a span {
-    padding: 6px 11px 7px;
-    background-color: white;
-    color: #00b0ff;
-    border: 0;
-    font-size: 16px !important;
-    transition: background-color 0.25s linear;
-}
-
-.info .update a span:hover {
-    background-color: #00b0ff;
-    color: white;
-}
-
-.info .delete {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
-.small-delete-button {
-    font-weight: 600;
-    padding: 10px 15px;
-    background-color: white;
-    color: #ff3724;
-    border: 0;
-    transition: background-color 0.25s linear;
-}
-
-.small-delete-button:hover {
-    background-color: #ff3724;
-    color: white;
-}
-
-
-/*  sorting  */
-/**************************************************/
-.sorting-box {
-}
-
-.sorting-box select {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    outline: 0;
-    background: #00b0ff;
-    color: white;
-    border: 0;
-    padding: 10px;
-    border-radius: 3px;
-
-    font-size: 14px;
-}
-
-.sorting-box input {
-    margin-bottom: 10px;
-    margin-top: 10px;
-    outline: 0;
-    background: #00b0ff;
-    color: white;
-    border: 0;
-    padding: 10px;
-    border-radius: 3px;
-
-    font-size: 15px;
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+    }
 }

@@ -20,18 +20,18 @@ public class AuthenticationHandler implements AuthenticationSuccessHandler, Auth
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        handle(request, response, "/home");
+        handle(request, response, "/");
     }
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
-        handle(request, response, "/home");
+        handle(request, response, "/");
     }
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         clearAuthenticationAttributes(request);
-        handle(request, response, "/home");
+        handle(request, response, "/");
     }
 
     private void handle(HttpServletRequest request, HttpServletResponse response, String targetUri) throws IOException {
