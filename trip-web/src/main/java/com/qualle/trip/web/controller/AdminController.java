@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveAuthorities;
+import static com.qualle.trip.web.controller.handler.ControllerUtil.clarifyPage;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,7 +29,7 @@ public class AdminController {
         model.addAttribute("type", "trips");
         model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 2));
 
-        return "admin";
+        return "data";
     }
 
     @GetMapping("/admin/employees")
@@ -38,7 +39,7 @@ public class AdminController {
         model.addAttribute("type", "employees");
         model.addAttribute("employees", userService.getUsers());
 
-        return "admin";
+        return "data";
     }
 
     @GetMapping("/admin/departments")
@@ -48,7 +49,7 @@ public class AdminController {
         model.addAttribute("type", "departments");
         model.addAttribute("departments", departmentService.getDepartments(clarifyPage(page), 5));
 
-        return "admin";
+        return "data";
     }
 
     @GetMapping("/admin/countries")
@@ -58,7 +59,7 @@ public class AdminController {
         model.addAttribute("type", "countries");
         model.addAttribute("countries", countryService.getCountries(clarifyPage(page), 5));
 
-        return "admin";
+        return "data";
     }
 
     @GetMapping("/admin/tickets")
@@ -68,17 +69,7 @@ public class AdminController {
         model.addAttribute("type", "tickets");
         model.addAttribute("tickets", ticketService.getTickets(clarifyPage(page), 5));
 
-        return "admin";
-    }
-
-    private int clarifyPage(Integer page) {
-        if (page == null) {
-            return 0;
-        }
-        if (page <= 0) {
-            return 0;
-        }
-        return page;
+        return "data";
     }
 
 }

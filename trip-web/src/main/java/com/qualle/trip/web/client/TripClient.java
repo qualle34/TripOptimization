@@ -13,6 +13,9 @@ public interface TripClient {
     @GetMapping(value = "/trips?page={page}&size={size}&sort={sort}")
     CollectionModel<Trip> getTrips(@PathVariable("page") Integer page, @PathVariable("size") Integer size, @PathVariable("sort") String sort);
 
+    @GetMapping(value = "/trips/search/findByUserId?userId={userId}")
+    CollectionModel<Trip> getTripsByUserId(@PathVariable("userId") Long userId);
+
     @GetMapping(value = "/trips/{id}")
     EntityModel<Trip> getTrip(@PathVariable("id") Long id);
 

@@ -20,7 +20,7 @@ public class Member {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "employee_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToOne

@@ -15,4 +15,11 @@ public class AuthenticationUtil {
         }
         return Collections.emptyList();
     }
+
+    public static Long retrieveUserId(SecurityUser user){
+        if (user == null) {
+            throw new RuntimeException("User is not authenticated");
+        }
+        return user.getId();
+    }
 }

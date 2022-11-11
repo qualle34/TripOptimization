@@ -38,6 +38,10 @@ public class SecurityUser implements UserDetails {
         return user.getCredentials().getLogin();
     }
 
+    public Long getId() {
+        return user.getId();
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

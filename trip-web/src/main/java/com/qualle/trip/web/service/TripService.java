@@ -10,5 +10,7 @@ public interface TripService {
 
     List<Trip> getTrips(int page, int size, String sort);
 
+    List<Trip> getUserTrips(long userId);
+
     Trip getTrip(Long id);
 }

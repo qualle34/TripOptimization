@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -27,6 +26,14 @@ public class TripServiceImpl implements TripService {
     public List<Trip> getTrips(int page, int size, String sort) {
 
         CollectionModel<Trip> trips = tripClient.getTrips(page, size, sort);
+
+        return new ArrayList<>(trips.getContent());
+    }
+
+    @Override
+    public List<Trip> getUserTrips(long userId) {
+
+        CollectionModel<Trip> trips = tripClient.getTripsByUserId(userId);
 
         return new ArrayList<>(trips.getContent());
     }

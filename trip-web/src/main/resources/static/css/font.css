@@ -8,14 +8,13 @@ html {
 }
 
 table {
-    font-family: 'Open Sans', sans-serif;
-    -webkit-transition: .3s all ease;
-    -o-transition: .3s all ease;
-    transition: .3s all ease;
     color: #151515;
-    text-decoration: none;
 }
 
 a {
     text-decoration: none;
+}
+
+p {
+    color: #151515;
 }

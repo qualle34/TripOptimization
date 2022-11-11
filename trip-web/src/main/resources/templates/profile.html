@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Trip Optimization</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../static/css/profile.css" th:href="@{/css/profile.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/font.css" th:href="@{/css/font.css}"/>
+    <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" th:href="@{/css/sidebar.css}"/>
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <nav class="sidebar" id="sidebar" th:insert="sidebar :: sidebar"></nav>
+    <div class="content">
+
+        <div class="box">
+            <table>
+                <tr>
+                    <td>ID</td>
+                    <td th:text="${profile.id}"></td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td th:text="${profile.name}"></td>
+                </tr>
+                <tr>
+                    <td>Surname</td>
+                    <td th:text="${profile.surname}"></td>
+                </tr>
+                <tr>
+                    <td>Patronymic</td>
+                    <td th:text="${profile.patronymic}"></td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td th:text="${profile.birthday}"></td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td th:text="${profile.gender}"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
