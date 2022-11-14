@@ -10,5 +10,6 @@ import lombok.*;
 public class Contact {
 
     private Long id;
-    private double value;
+    private String value;
+    private String type;
 }

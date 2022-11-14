@@ -12,15 +12,18 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "contract", schema = "public")
+@Table(name = "contact", schema = "public")
 public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private double value;
+    private String value;
 
-// todo    private String type;
+    private String type;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

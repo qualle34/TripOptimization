@@ -40,13 +40,9 @@ CREATE TABLE "role" (
 
 CREATE TABLE "contact" (
                            "id" bigserial PRIMARY KEY,
-                           "value" varchar
-);
-
-CREATE TABLE "user_contact" (
-                                "user_id" int8,
-                                "contact_id" int8,
-                                PRIMARY KEY ("user_id", "contact_id")
+                           "user_id" int8,
+                           "value" varchar,
+                           "type" varchar
 );
 
 CREATE TABLE "department" (
@@ -56,7 +52,7 @@ CREATE TABLE "department" (
 );
 
 CREATE TABLE "passport" (
-                            "id" bigserial PRIMARY KEY,
+                            "user_id" bigserial PRIMARY KEY,
                             "serial" varchar,
                             "number" int8,
                             "personal_number" int8
@@ -128,13 +124,11 @@ ALTER TABLE "user" ADD FOREIGN KEY ("credentials_id") REFERENCES "credentials" (
 
 ALTER TABLE "user" ADD FOREIGN KEY ("department_id") REFERENCES "department" ("id");
 
-ALTER TABLE "user" ADD FOREIGN KEY ("passport_id") REFERENCES "passport" ("id");
+ALTER TABLE "user" ADD FOREIGN KEY ("passport_id") REFERENCES "passport" ("user_id");
 
 ALTER TABLE "user" ADD FOREIGN KEY ("role_id") REFERENCES "role" ("id");
 
-ALTER TABLE "user_contact" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
-
-ALTER TABLE "user_contact" ADD FOREIGN KEY ("contact_id") REFERENCES "contact" ("id");
+ALTER TABLE "contact" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 
 ALTER TABLE "member_ticket" ADD FOREIGN KEY ("member_id") REFERENCES "member" ("id");
 

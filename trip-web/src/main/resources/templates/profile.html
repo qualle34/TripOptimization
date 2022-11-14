@@ -47,7 +47,23 @@
                     <td>Gender</td>
                     <td th:text="${profile.gender}"></td>
                 </tr>
+                <tr>
+                    <td>Login</td>
+                    <td th:text="${profile.credentials.login}"></td>
+                </tr>
+                <tr>
+                    <td>Department</td>
+                    <td th:text="${profile.department.name}"></td>
+                </tr>
+                <tr>
+                    <td>Role</td>
+                    <td th:text="${profile.role.value}"></td>
+                </tr>
             </table>
+            <p>Contacts</p>
+            <div th:each="contact : ${profile.contacts}">
+                <p th:text="${contact.type} + ': ' + ${contact.value}"></p>
+            </div>
 
         </div>
     </div>

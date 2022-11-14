@@ -1,26 +1,23 @@
-package com.qualle.trip.web.client.api;
+package com.qualle.trip.web.dto;
 
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.List;
-
 
 @Getter
 @Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class RegistrationDto {
 
-    private Long id;
+    private String login;
     private String name;
     private String surname;
     private String patronymic;
     private LocalDate birthday;
     private String gender;
-    private Credentials credentials;
-    private Department department;
-    private List<Contact> contacts;
-    private Role role;
+    private String email;
+    private String phone;
+    private String password;
 }

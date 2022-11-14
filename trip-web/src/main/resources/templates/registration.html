@@ -23,10 +23,12 @@
       <form th:action="@{/registration}" method="post" id="registration">
         <input class="login-input" type="text" placeholder="Логин *" name="login"/>
         <input class="name-input" type="text" placeholder="Имя *" name="name"/>
-        <input class="name-input" type="text" placeholder="Фамилия" name="lastname"/>
+        <input class="name-input" type="text" placeholder="Фамилия" name="surname"/>
+        <input class="name-input" type="text" placeholder="Отчество" name="patronymic"/>
+        <input class="phone-input" type="text" placeholder="Пол (M/W)" name="gender"/>
+        <input class="phone-input" type="text" placeholder="Дата рождения (2001-01-01)" name="birthday"/>
         <input class="email-input" type="email" placeholder="Email" name="email"/>
         <input class="phone-input" type="text" placeholder="Номер телефона" name="phone"/>
-        <input class="phone-input" type="text" placeholder="Дата рождения (2001-01-01)" name="birthday"/>
         <input class="password-input" type="password" placeholder="Пароль *" name="password"/>
         <p id="message" class="message"></p>
         <input class="submit-input" type="submit" value="Зарегистрироваться">

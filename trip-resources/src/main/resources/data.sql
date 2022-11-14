@@ -26,6 +26,26 @@ INSERT INTO "credentials"(user_id, login, password) values(5, 'annamanager', '$2
 INSERT INTO "credentials"(user_id, login, password) values(6, 'user', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
 INSERT INTO "credentials"(user_id, login, password) values(7, 'admin', '$2a$10$dt1Jmg.w/sgjVSo2u7Vks.CD6wOGe2PqX.vB9uVPfVswyIeS99/46');
 
+INSERT INTO contact(user_id, value, type) values(1, '+3753322348723', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(2, '+3753322345638', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(3, '+3234545321673', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(4, '+3758955467543', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(5, '+3753456323455', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(6, '+3754574567445', 'PHONE');
+INSERT INTO contact(user_id, value, type) values(1, 'hsakdjf@gmail.com', 'EMAIL');
+INSERT INTO contact(user_id, value, type) values(2, 'asdfa@gmail.com', 'EMAIL');
+INSERT INTO contact(user_id, value, type) values(3, 'dfghdfgh@gmail.com', 'EMAIL');
+INSERT INTO contact(user_id, value, type) values(4, 'asdfasdf@gmail.com', 'EMAIL');
+INSERT INTO contact(user_id, value, type) values(5, 'hdftrte@gmail.com', 'EMAIL');
+INSERT INTO contact(user_id, value, type) values(6, 'werdfg@gmail.com', 'EMAIL');
+
+INSERT INTO passport(user_id, serial, number, personal_number) values(1, 'KP', 324523, 1324512345345);
+INSERT INTO passport(user_id, serial, number, personal_number) values(2, 'KP', 213522, 5678354678345);
+INSERT INTO passport(user_id, serial, number, personal_number) values(3, 'PP', 234523, 3456345632233);
+INSERT INTO passport(user_id, serial, number, personal_number) values(4, 'PP', 345634, 3456367347345);
+INSERT INTO passport(user_id, serial, number, personal_number) values(5, 'KP', 986796, 3456712134633);
+INSERT INTO passport(user_id, serial, number, personal_number) values(6, 'KP', 587696, 8745847842236);
+
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Farming', 'Test text: Iolaus', 'Самара', '2017-01-02 22:05:41-00', '2021-12-14 15:23:55-00', 236);
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Construction', 'Test text: Phaedra', 'Магнитогорск', '2017-04-05 22:18:03-00', '2025-06-04 00:54:21-00', 180);
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Manufacturing', 'Test text: Ariadne', 'Тверь', '2020-12-21 04:37:51-00', '2023-12-13 10:36:04-00', 158);

@@ -24,4 +24,8 @@ public class Passport {
     private Long number;
 
     private Long personalNumber;
+
+    @MapsId
+    @OneToOne
+    private User user;
 }
