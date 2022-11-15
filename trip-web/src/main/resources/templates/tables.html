@@ -1,95 +1,59 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>Trip Optimization</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../static/css/tables.css" th:href="@{/css/tables.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/font.css" th:href="@{/css/font.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/sidebar.css" th:href="@{/css/sidebar.css}"/>
+  <link rel="stylesheet" type="text/css" href="../static/css/table.css" th:href="@{/css/table.css}"/>
+
+  <script src="static/js/nav.js" th:src="@{/js/nav.js}" type="text/javascript"></script>
+  <script src="static/js/href.js" th:src="@{/js/href.js}" type="text/javascript"></script>
+</head>
 <body>
 
-<table class="fl-table" th:fragment="trips">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Start</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="trip : ${trips}">
-        <td th:text="${trip.id}"></td>
-        <td th:text="${trip.title}"></td>
-        <td th:text="${trip.description}"></td>
-        <td th:text="${trip.start}"></td>
-    </tr>
-    <tbody>
-</table>
+<div class="wrapper">
 
-<table class="fl-table" th:fragment="employees">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Surname</th>
-        <th>Role</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="employee : ${employees}">
-        <td th:text="${employee.id}"></td>
-        <td th:text="${employee.name}"></td>
-        <td th:text="${employee.surname}"></td>
-        <td th:text="${employee.role.value}"></td>
-    </tr>
-    <tbody>
-</table>
+  <nav class="sidebar" id="sidebar" th:insert="fragments/sidebar :: sidebar"></nav>
 
-<table class="fl-table" th:fragment="departments">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="department : ${departments}">
-        <td th:text="${department.id}"></td>
-        <td th:text="${department.name}"></td>
-        <td th:text="${department.description}"></td>
-    </tr>
-    <tbody>
-</table>
+  <div class="content">
 
-<table class="fl-table" th:fragment="countries">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="country : ${countries}">
-        <td th:text="${country.id}"></td>
-        <td th:text="${country.value}"></td>
-    </tr>
-    <tbody>
-</table>
+    <div class="fl-table" th:if="${type == 'trips'}" th:insert="fragments/tables :: trips"></div>
+    <div class="fl-table" th:if="${type == 'employees'}" th:insert="fragments/tables :: employees"></div>
+    <div class="fl-table" th:if="${type == 'departments'}" th:insert="fragments/tables :: departments"></div>
+    <div class="fl-table" th:if="${type == 'countries'}" th:insert="fragments/tables :: countries"></div>
+    <div class="fl-table" th:if="${type == 'tickets'}" th:insert="fragments/tables :: tickets"></div>
 
-<table class="fl-table" th:fragment="tickets">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>From</th>
-        <th>To</th>
-        <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="ticket : ${tickets}">
-        <td th:text="${ticket.id}"></td>
-        <td th:text="${ticket.from}"></td>
-        <td th:text="${ticket.to}"></td>
-        <td th:text="${ticket.date}"></td>
-    </tr>
-    <tbody>
-</table>
+    <div class="nav">
+      <div class="prev">
+        <a id="prev-btn"><</a>
+      </div>
+      <div class="center">
+        <p id="page" >Page</p>
+      </div>
+      <div class="next">
+        <a id="next-btn">></a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let page = parseInt(new URLSearchParams(window.location.search).get("page"));
+    if (isNaN(page)) {
+      page = 0;
+    }
+    document.getElementById("page").innerHTML = "Page " + (page + 1);
+  </script>
+
+</div>
 
 </body>
 </html>
