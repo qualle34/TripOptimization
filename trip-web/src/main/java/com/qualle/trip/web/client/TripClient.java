@@ -1,11 +1,15 @@
 package com.qualle.trip.web.client;
 
+import com.qualle.trip.web.client.api.Member;
 import com.qualle.trip.web.client.api.Trip;
+import com.qualle.trip.web.client.api.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @FeignClient(value = "tripClient", url = "http://localhost:8080/")
 public interface TripClient {
@@ -19,4 +23,12 @@ public interface TripClient {
     @GetMapping(value = "/trips/{id}")
     EntityModel<Trip> getTrip(@PathVariable("id") Long id);
 
+    @PostMapping(value = "/trips")
+    EntityModel<Trip> saveTrip(Trip trip);
+
+    @PutMapping(value = "/trips/{id}")
+    EntityModel<Trip> updateTrip(@PathVariable("id") Long id, Trip trip);
+
+    @PostMapping(value = "/members")
+    EntityModel<Member> saveMember(Member member);
 }

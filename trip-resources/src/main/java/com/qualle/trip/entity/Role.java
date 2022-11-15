@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -23,6 +24,6 @@ public class Role {
     private String value;
 
     @OneToMany(mappedBy = "role")
-    private Set<User> users;
+    private List<User> users;
 
 }

@@ -2,6 +2,7 @@ package com.qualle.trip.web.client.api;
 
 import lombok.*;
 
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -14,7 +15,7 @@ public class Member {
     private Long id;
     private User user;
     private Trip trip;
-    private Set<MemberAllowance> memberAllowances;
-    private Set<Ticket> tickets;
+    private List<MemberAllowance> memberAllowances;
+    private List<Ticket> tickets;
     private String role;
 }

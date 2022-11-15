@@ -13,6 +13,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class UserServiceImpl implements UserService {
                 .name(registration.getName())
                 .surname(registration.getSurname())
                 .patronymic(registration.getPatronymic())
-                .birthday(registration.getBirthday())
+                .birthday(LocalDate.parse(registration.getBirthday()))
                 .gender(registration.getGender())
                 .credentials(Credentials.builder()
                         .login(registration.getLogin())

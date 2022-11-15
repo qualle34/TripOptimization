@@ -7,6 +7,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveAuthorities;
@@ -29,7 +30,7 @@ public class AdminController {
         model.addAttribute("type", "trips");
         model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 2));
 
-        return "data";
+        return "tables";
     }
 
     @GetMapping("/admin/employees")
@@ -39,7 +40,7 @@ public class AdminController {
         model.addAttribute("type", "employees");
         model.addAttribute("employees", userService.getUsers());
 
-        return "data";
+        return "tables";
     }
 
     @GetMapping("/admin/departments")
@@ -49,7 +50,7 @@ public class AdminController {
         model.addAttribute("type", "departments");
         model.addAttribute("departments", departmentService.getDepartments(clarifyPage(page), 5));
 
-        return "data";
+        return "tables";
     }
 
     @GetMapping("/admin/countries")
@@ -59,7 +60,7 @@ public class AdminController {
         model.addAttribute("type", "countries");
         model.addAttribute("countries", countryService.getCountries(clarifyPage(page), 5));
 
-        return "data";
+        return "tables";
     }
 
     @GetMapping("/admin/tickets")
@@ -69,7 +70,17 @@ public class AdminController {
         model.addAttribute("type", "tickets");
         model.addAttribute("tickets", ticketService.getTickets(clarifyPage(page), 5));
 
-        return "data";
+        return "tables";
+    }
+
+    @GetMapping("/admin/trips/{id}/edit")
+    public String getEditTripPage(@PathVariable Long id, Model model, @AuthenticationPrincipal SecurityUser auth) {
+
+        model.addAttribute("authorities", retrieveAuthorities(auth));
+        model.addAttribute("type", "trip-edit");
+        model.addAttribute("trip", tripService.getTrip(id));
+
+        return "edit";
     }
 
 }

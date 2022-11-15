@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -28,10 +29,10 @@ public class Member {
     private Trip trip;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<MemberAllowance> memberAllowances;
+    private List<MemberAllowance> memberAllowances;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Ticket> tickets;
+    private List<Ticket> tickets;
 
     private String role;
 

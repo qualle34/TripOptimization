@@ -2,6 +2,7 @@ package com.qualle.trip.web.client.api;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -17,8 +18,8 @@ public class Trip {
     private String title;
     private String place;
     private String description;
-    private Date start;
-    private Date end;
+    private LocalDate start;
+    private LocalDate end;
     private double expenses;
     private List<Member> members;
 }

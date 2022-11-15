@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -28,16 +30,14 @@ public class Trip {
     private String description;
 
     @Column(name = "date_start")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date start;
+    private LocalDate start;
 
     @Column(name = "date_end")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date end;
+    private LocalDate end;
 
     private double expenses;
 
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Member> members;
+    private List<Member> members;
 
 }

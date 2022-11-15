@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -26,6 +27,6 @@ public class Allowance {
     private Country country;
 
     @OneToMany(mappedBy = "allowance", cascade = CascadeType.ALL)
-    private Set<MemberAllowance> memberAllowances;
+    private List<MemberAllowance> memberAllowances;
 
 }

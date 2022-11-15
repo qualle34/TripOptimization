@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="box" th:fragment="trip">
+
+    <div class="container-contact">
+
+        <div class="wrap-form">
+            <div class="contact-form-title">
+                <span class="contact-form-title-2"> Заполните все поля! </span>
+            </div>
+
+            <form class="contact-form validate-form" method="post" th:action="@{'/manager/trip/add'}">
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Название:</span>
+                    <input class="input" type="text" name="title" placeholder="Введите название*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Мероприятие/Место:</span>
+                    <textarea class="input" name="place" placeholder="Мероприятие/Место.."></textarea>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Описание:</span>
+                    <textarea class="input" name="description" placeholder="Описание..."></textarea>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Дата начала:</span>
+                    <input class="input" type="text" name="start" placeholder="Введите дату (2001-01-01)...">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Дата завершения:</span>
+                    <input class="input" type="text" name="end" placeholder="Введите дату (2001-01-01)...">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Доп. расходы:</span>
+                    <input class="input" type="text" name="expenses" placeholder="Расходы...">
+                    <span class="focus-input"></span>
+                </div>
+
+                <!--                <div class="wrap-input validate-input">-->
+                <!--                    <span class="label-input">Сотрудник:</span>-->
+                <!--                    <select size="5" name="employeeId">-->
+                <!--                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name + ' ' + employee.surname}"></option>-->
+                <!--                    </select>-->
+                <!--                    <span class="focus-input"></span>-->
+                <!--                </div>-->
+
+                <div class="container-contact-form-btn">
+                    <button class="contact-form-btn" type="submit">
+                        <span>ОК</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="box" th:fragment="ticket">
+
+    <div class="container-contact">
+
+        <div class="wrap-form">
+            <div class="contact-form-title">
+                <span class="contact-form-title-2"> Заполните все поля! </span>
+            </div>
+
+            <form class="contact-form validate-form" method="post" th:action="@{'/manager/ticket/add'}">
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Название:</span>
+                    <input class="input" type="text" name="title" placeholder="Введите название*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Мероприятие/Место:</span>
+                    <textarea class="input" name="place" placeholder="Мероприятие/Место.."></textarea>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Описание:</span>
+                    <textarea class="input" name="description" placeholder="Описание..."></textarea>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Дата начала:</span>
+                    <input class="input" type="text" name="start" placeholder="Введите дату (2001-01-01)...">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Дата завершения:</span>
+                    <input class="input" type="text" name="end" placeholder="Введите дату (2001-01-01)...">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Сотрудник:</span>
+                    <select size="5" name="employeeId">
+                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name + ' ' + employee.surname}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="container-contact-form-btn">
+                    <button class="contact-form-btn" type="submit">
+                        <span>ОК</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="box" th:fragment="member">
+
+    <div class="container-contact">
+
+        <div class="wrap-form">
+            <div class="contact-form-title">
+                <span class="contact-form-title-2"> Заполните все поля! </span>
+            </div>
+
+            <form class="contact-form validate-form" method="post" th:action="@{'/manager/member/add'}">
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Сотрудник:</span>
+                    <select size="5" name="employeeId">
+                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name + ' ' + employee.surname}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Командировка:</span>
+                    <select size="5" name="tripId">
+                        <option th:each="trip : ${trips}" th:value="${trip.id}" th:text="${trip.title}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Страна:</span>
+                    <select size="5" name="countryId">
+                        <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.value}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Количество дней:</span>
+                    <input class="input" type="text" name="days" placeholder="Введите количество*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Расходы в день:</span>
+                    <input class="input" type="text" name="expenses" placeholder="Введите количество*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="container-contact-form-btn">
+                    <button class="contact-form-btn" type="submit">
+                        <span>ОК</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

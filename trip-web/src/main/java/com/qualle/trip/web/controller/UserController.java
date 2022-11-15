@@ -7,6 +7,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveAuthorities;
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveUserId;
@@ -18,22 +19,32 @@ public class UserController {
     private final TripService tripService;
     private final UserService userService;
 
-    @GetMapping("/trips")
+    @GetMapping("/user/trips")
     public String getTripsPage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "trips");
         model.addAttribute("trips", tripService.getUserTrips(retrieveUserId(auth)));
 
-        return "data";
+        return "tables";
     }
 
-    @GetMapping("/profile")
+    @GetMapping("/user/profile")
     public String getProfilePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("profile", userService.getUser(retrieveUserId(auth)));
 
         return "profile";
+    }
+
+    @GetMapping("/user/trips/{id}/edit")
+    public String getEditTripPage(@PathVariable Long id, Model model, @AuthenticationPrincipal SecurityUser auth) {
+
+        model.addAttribute("authorities", retrieveAuthorities(auth));
+        model.addAttribute("type", "trip-edit");
+        model.addAttribute("trip", tripService.getTrip(id));
+
+        return "edit";
     }
 }
