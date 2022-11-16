@@ -24,6 +24,7 @@ public class Allowance {
 
     private double value;
 
+    @RestResource(exported = false)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "country_id")
     private Country country;
@@ -31,4 +32,7 @@ public class Allowance {
     @OneToMany(mappedBy = "allowance", cascade = CascadeType.ALL)
     private List<MemberAllowance> memberAllowances;
 
+    public Allowance(Long id) {
+        this.id = id;
+    }
 }

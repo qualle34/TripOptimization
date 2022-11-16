@@ -33,6 +33,7 @@ public class Member {
     @JoinColumn(name = "trip_id", referencedColumnName = "id")
     private Trip trip;
 
+    @RestResource(exported = false)
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<MemberAllowance> memberAllowances;
 
