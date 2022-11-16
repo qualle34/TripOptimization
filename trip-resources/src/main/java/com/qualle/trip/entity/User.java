@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -47,9 +48,14 @@ public class User {
     @PrimaryKeyJoinColumn
     private Passport passport;
 
+    @RestResource(exported = false)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Member> members;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Contact> contacts;
+
+    public User(Long id) {
+        this.id = id;
+    }
 }

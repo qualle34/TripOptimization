@@ -16,11 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveAuthorities;
 import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveUserId;
+import static com.qualle.trip.web.controller.handler.ControllerUtil.clarifyPage;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,11 +33,21 @@ public class ManagerController {
     private final CountryService countryService;
 
     @GetMapping("/manager/trips")
-    public String getTripsPage(Model model, @AuthenticationPrincipal SecurityUser auth) {
+    public String getTripsPage(@RequestParam(required = false) Integer page, Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "trips");
-        model.addAttribute("trips", tripService.getUserTrips(retrieveUserId(auth)));
+        model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 2));
+
+        return "tables";
+    }
+
+    @GetMapping("/manager/employees")
+    public String getEmployeesPage(@RequestParam(required = false) Integer page, Model model, @AuthenticationPrincipal SecurityUser auth) {
+
+        model.addAttribute("authorities", retrieveAuthorities(auth));
+        model.addAttribute("type", "employees");
+        model.addAttribute("employees", userService.getUsers());
 
         return "tables";
     }
@@ -44,7 +56,7 @@ public class ManagerController {
     public String getProfilePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("profile", userService.getUser(retrieveUserId(auth)));
+        model.addAttribute("profile", userService.getUserWithDepartment(retrieveUserId(auth)));
 
         return "profile";
     }
@@ -53,12 +65,12 @@ public class ManagerController {
     public String getEditTripPage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "manager-trip-add");
+        model.addAttribute("type", "trip-add");
 
         return "edit";
     }
 
-    @GetMapping("/manager/ticket/add")
+    @GetMapping("/manager/ticket/add") //todo
     public String getEditTicketPage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
@@ -68,7 +80,7 @@ public class ManagerController {
         return "edit";
     }
 
-    @GetMapping("/manager/member/add")
+    @GetMapping("/manager/member/add") //todo
     public String getEditAllowancePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));

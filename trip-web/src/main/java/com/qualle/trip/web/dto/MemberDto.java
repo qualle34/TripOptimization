@@ -14,4 +14,5 @@ public class MemberDto {
     private long countryId;
     private int days;
     private long expenses;
+    private String role;
 }

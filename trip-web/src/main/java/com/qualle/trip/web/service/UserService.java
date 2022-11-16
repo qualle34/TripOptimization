@@ -11,9 +11,13 @@ public interface UserService {
 
     User getUser(Long id);
 
+    User getUserWithDepartment(Long id);
+
     User getUserByLogin(String login);
 
     void create(RegistrationDto user);
 
     void update(RegistrationDto user);
+
+    void update(User user);
 }

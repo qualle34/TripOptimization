@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUser(Long id) {
+        return userClient.getUser(id).getContent();
+    }
+
+    @Override
+    public User getUserWithDepartment(Long id) {
         User user =  userClient.getUser(id).getContent();
 
         Department department = departmentClient.getDepartmentByUserId(user.getId()).getContent();
@@ -78,5 +83,10 @@ public class UserServiceImpl implements UserService {
                 .build();
 
         userClient.updateUser(dto.getId(), user);
+    }
+
+    @Override
+    public void update(User user) {
+        userClient.updateUser(user.getId(), user);
     }
 }

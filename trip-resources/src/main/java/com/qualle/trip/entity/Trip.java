@@ -40,4 +40,7 @@ public class Trip {
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Member> members;
 
+    public Trip(Long id) {
+        this.id = id;
+    }
 }

@@ -26,4 +26,7 @@ public interface UserClient {
 
     @PatchMapping(value = "/users/{id}")
     EntityModel<User> updateUser(@PathVariable("id") Long id, SimpleUser user);
+
+    @PatchMapping(value = "/users/{id}")
+    EntityModel<User> updateUser(@PathVariable("id") Long id, User user);
 }

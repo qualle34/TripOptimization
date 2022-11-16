@@ -1,6 +1,5 @@
 package com.qualle.trip.resurce;
 
-import com.qualle.trip.entity.Credentials;
 import com.qualle.trip.entity.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;

@@ -22,5 +22,6 @@ public class User {
     private Credentials credentials;
     private Department department;
     private List<Contact> contacts;
+    private List<Member> members;
     private Role role;
 }

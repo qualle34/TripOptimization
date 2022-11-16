@@ -1,5 +1,7 @@
 package com.qualle.trip.entity;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.qualle.trip.deserializer.MemberDeserializer;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,16 +17,18 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "member", schema = "public")
+@JsonDeserialize(using = MemberDeserializer.class)
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "trip_id")
     private Trip trip;
 

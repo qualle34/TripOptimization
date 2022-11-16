@@ -33,7 +33,7 @@ public class UserController {
     public String getProfilePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("profile", userService.getUser(retrieveUserId(auth)));
+        model.addAttribute("profile", userService.getUserWithDepartment(retrieveUserId(auth)));
 
         return "profile";
     }
@@ -53,7 +53,7 @@ public class UserController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "user-edit");
-        model.addAttribute("user", userService.getUser(retrieveUserId(auth)));
+        model.addAttribute("user", userService.getUserWithDepartment(retrieveUserId(auth)));
 
         return "edit";
     }
