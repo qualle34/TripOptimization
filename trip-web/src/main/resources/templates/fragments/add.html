@@ -49,14 +49,6 @@
                     <span class="focus-input"></span>
                 </div>
 
-                <!--                <div class="wrap-input validate-input">-->
-                <!--                    <span class="label-input">Сотрудник:</span>-->
-                <!--                    <select size="5" name="employeeId">-->
-                <!--                        <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name + ' ' + employee.surname}"></option>-->
-                <!--                    </select>-->
-                <!--                    <span class="focus-input"></span>-->
-                <!--                </div>-->
-
                 <div class="container-contact-form-btn">
                     <button class="contact-form-btn" type="submit">
                         <span>ОК</span>
@@ -159,6 +151,12 @@
                     <select size="5" name="countryId">
                         <option th:each="country : ${countries}" th:value="${country.id}" th:text="${country.value}"></option>
                     </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Роль участника:</span>
+                    <input class="input" type="text" name="role" placeholder="Введите роль*">
                     <span class="focus-input"></span>
                 </div>
 

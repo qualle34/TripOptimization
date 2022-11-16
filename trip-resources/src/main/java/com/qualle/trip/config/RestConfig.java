@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
+import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
@@ -27,13 +28,14 @@ public class RestConfig implements RepositoryRestConfigurer {
         config.exposeIdsFor(classes);
     }
 
-    @Bean
-    public ServletRegistrationBean dispatcherRegistration() {
-        return new ServletRegistrationBean(dispatcherServlet());
-    }
-
-    @Bean(name = DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)
-    public DispatcherServlet dispatcherServlet() {
-        return new LoggableDispatcherServlet();
-    }
+//
+//    @Bean
+//    public ServletRegistrationBean dispatcherRegistration() {
+//        return new ServletRegistrationBean(dispatcherServlet());
+//    }
+//
+//    @Bean(name = DispatcherServletAutoConfiguration.DEFAULT_DISPATCHER_SERVLET_BEAN_NAME)
+//    public DispatcherServlet dispatcherServlet() {
+//        return new LoggableDispatcherServlet();
+//    }
 }

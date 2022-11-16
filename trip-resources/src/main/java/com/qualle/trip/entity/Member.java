@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,12 +25,12 @@ public class Member {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "trip_id")
+    @ManyToOne
+    @JoinColumn(name = "trip_id", referencedColumnName = "id")
     private Trip trip;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -40,4 +41,7 @@ public class Member {
 
     private String role;
 
+    public Member(Long id) {
+        this.id = id;
+    }
 }

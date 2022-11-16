@@ -83,11 +83,6 @@ CREATE TABLE "ticket" (
                           "type_id" int8
 );
 
-CREATE TABLE "member_ticket" (
-                                 "member_id" int8,
-                                 "ticket_id" int8
-);
-
 CREATE TABLE "transport" (
                              "id" bigserial PRIMARY KEY,
                              "value" varchar
@@ -128,11 +123,9 @@ ALTER TABLE "user" ADD FOREIGN KEY ("role_id") REFERENCES "role" ("id");
 
 ALTER TABLE "contact" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 
-ALTER TABLE "member_ticket" ADD FOREIGN KEY ("member_id") REFERENCES "member" ("id");
-
-ALTER TABLE "member_ticket" ADD FOREIGN KEY ("ticket_id") REFERENCES "ticket" ("id");
-
 ALTER TABLE "ticket" ADD FOREIGN KEY ("type_id") REFERENCES "transport" ("id");
+
+ALTER TABLE "ticket" ADD FOREIGN KEY ("member_id") REFERENCES "member" ("id");
 
 ALTER TABLE "allowance" ADD FOREIGN KEY ("country_id") REFERENCES "country" ("id");
 

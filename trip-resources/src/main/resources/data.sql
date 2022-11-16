@@ -83,3 +83,11 @@ INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(3, 'Ф�
 INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(4, 'Гвинея, Омск', 'Исландия, Волгоград', '2024-02-21 05:05:52-00', 218, 4);
 INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(1, 'Тувалу, Ростов-на-Дону', 'Италия, Омск', '2024-08-26 06:43:55-00', 8, 1);
 INSERT INTO ticket(member_id, "from", "to", date, price, type_id) values(2, 'Гондурас, Волгоград', 'Демократическая Республика, Томск', '2021-06-15 08:57:31-00', 113, 2);
+
+INSERT INTO allowance(value, country_id) values(20, 1);
+INSERT INTO allowance(value, country_id) values(15, 2);
+INSERT INTO allowance(value, country_id) values(10, 3);
+
+INSERT INTO member_allowance(member_id, allowance_id, days) values(1, 1, 10);
+INSERT INTO member_allowance(member_id, allowance_id, days) values(2, 2, 5);
+INSERT INTO member_allowance(member_id, allowance_id, days) values(3, 3, 3);
