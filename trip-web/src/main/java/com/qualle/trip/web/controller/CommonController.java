@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveAuthorities;
-import static com.qualle.trip.web.controller.handler.AuthenticationUtil.retrieveUserId;
+import static com.qualle.trip.web.controller.handler.AuthenticationUtil.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,7 +36,7 @@ public class CommonController {
         model.addAttribute("type", "trips");
         model.addAttribute("trips", tripService.getUserTrips(retrieveUserId(auth)));
 
-        return "tables";
+        return "redirect:/" + retrieveAuthorityInLowercase(auth) + "/trips";
     }
 
 
