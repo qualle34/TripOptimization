@@ -47,4 +47,14 @@ public class UserController {
 
         return "edit";
     }
+
+    @GetMapping("/user/profile/edit")
+    public String getEditProfilePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
+
+        model.addAttribute("authorities", retrieveAuthorities(auth));
+        model.addAttribute("type", "user-edit");
+        model.addAttribute("user", userService.getUser(retrieveUserId(auth)));
+
+        return "edit";
+    }
 }

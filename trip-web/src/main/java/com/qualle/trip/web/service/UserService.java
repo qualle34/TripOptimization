@@ -14,4 +14,6 @@ public interface UserService {
     User getUserByLogin(String login);
 
     void create(RegistrationDto user);
+
+    void update(RegistrationDto user);
 }

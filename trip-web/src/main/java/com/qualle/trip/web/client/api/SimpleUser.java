@@ -18,7 +18,4 @@ public class SimpleUser {
     private String patronymic;
     private LocalDate birthday;
     private String gender;
-    private Credentials credentials;
-    private Department department;
-    private Role role;
 }

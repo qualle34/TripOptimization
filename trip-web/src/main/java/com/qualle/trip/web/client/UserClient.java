@@ -1,14 +1,13 @@
 package com.qualle.trip.web.client;
 
+import com.qualle.trip.web.client.api.SimpleUser;
 import com.qualle.trip.web.client.api.Trip;
 import com.qualle.trip.web.client.api.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.core.io.Resource;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "userClient", url = "http://localhost:8080/")
 public interface UserClient {
@@ -24,4 +23,7 @@ public interface UserClient {
 
     @PostMapping(value = "/users")
     EntityModel<User> saveUser(User user);
+
+    @PatchMapping(value = "/users/{id}")
+    EntityModel<User> updateUser(@PathVariable("id") Long id, SimpleUser user);
 }

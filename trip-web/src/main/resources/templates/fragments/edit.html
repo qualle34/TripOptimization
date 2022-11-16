@@ -185,5 +185,57 @@
 </div>
 
 
+<div class="box" th:fragment="user">
+
+    <div class="container-contact">
+
+        <div class="wrap-form">
+            <div class="contact-form-title">
+                <span class="contact-form-title-2"> Заполните все поля! </span>
+            </div>
+
+            <form class="contact-form validate-form" method="post" th:action="@{'/user/edit/' + ${user.id}}">
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Имя:</span>
+                    <input class="input" th:value="${user.name}" type="text" name="name" placeholder="Введите имя*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Фамилия:</span>
+                    <input class="input" th:value="${user.surname}" type="text" name="surname" placeholder="Введите фамилию*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Отчество:</span>
+                    <input class="input" th:value="${user.patronymic}" type="text" name="patronymic" placeholder="Введите отчество*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Пол (M/W):</span>
+                    <input class="input" th:value="${user.gender}" type="text" name="gender" placeholder="Введите пол*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Дата рождения (2001-01-01):</span>
+                    <input class="input" th:value="${user.birthday}" type="text" name="birthday" placeholder="Введите дату*">
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="container-contact-form-btn">
+                    <button class="contact-form-btn" type="submit">
+                        <span>ОК</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>

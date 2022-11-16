@@ -2,8 +2,6 @@ package com.qualle.trip.web.dto;
 
 import lombok.*;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @Builder
@@ -11,6 +9,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class RegistrationDto {
 
+    private Long id;
     private String login;
     private String name;
     private String surname;

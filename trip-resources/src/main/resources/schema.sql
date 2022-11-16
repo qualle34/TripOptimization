@@ -27,10 +27,8 @@ CREATE TABLE "user" (
                         "patronymic" varchar,
                         "birthday" varchar,
                         "gender" varchar,
-                        "credentials_id" int8,
                         "role_id" int8,
-                        "department_id" int8,
-                        "passport_id" int8
+                        "department_id" int8
 );
 
 CREATE TABLE "role" (
@@ -120,11 +118,11 @@ ALTER TABLE "member" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 
 ALTER TABLE "member" ADD FOREIGN KEY ("trip_id") REFERENCES "trip" ("id");
 
-ALTER TABLE "user" ADD FOREIGN KEY ("credentials_id") REFERENCES "credentials" ("user_id");
+ALTER TABLE "credentials" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
+
+ALTER TABLE "passport" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 
 ALTER TABLE "user" ADD FOREIGN KEY ("department_id") REFERENCES "department" ("id");
-
-ALTER TABLE "user" ADD FOREIGN KEY ("passport_id") REFERENCES "passport" ("user_id");
 
 ALTER TABLE "user" ADD FOREIGN KEY ("role_id") REFERENCES "role" ("id");
 

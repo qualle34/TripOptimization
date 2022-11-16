@@ -2,10 +2,7 @@ package com.qualle.trip.web.service.impl;
 
 import com.qualle.trip.web.client.DepartmentClient;
 import com.qualle.trip.web.client.UserClient;
-import com.qualle.trip.web.client.api.Credentials;
-import com.qualle.trip.web.client.api.Department;
-import com.qualle.trip.web.client.api.Role;
-import com.qualle.trip.web.client.api.User;
+import com.qualle.trip.web.client.api.*;
 import com.qualle.trip.web.dto.RegistrationDto;
 import com.qualle.trip.web.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -66,5 +63,20 @@ public class UserServiceImpl implements UserService {
                 .build();
 
         userClient.saveUser(user);
+    }
+
+    @Override
+    public void update(RegistrationDto dto) {
+
+        SimpleUser user = SimpleUser.builder()
+                .id(dto.getId())
+                .name(dto.getName())
+                .surname(dto.getSurname())
+                .patronymic(dto.getPatronymic())
+                .birthday(LocalDate.parse(dto.getBirthday()))
+                .gender(dto.getGender())
+                .build();
+
+        userClient.updateUser(dto.getId(), user);
     }
 }
