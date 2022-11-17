@@ -1,5 +1,6 @@
 package com.qualle.trip.web.service.impl;
 
+import com.qualle.trip.web.client.AllowanceClient;
 import com.qualle.trip.web.client.TripClient;
 import com.qualle.trip.web.client.api.*;
 import com.qualle.trip.web.dto.MemberDto;
@@ -8,6 +9,7 @@ import com.qualle.trip.web.service.TripService;
 import com.qualle.trip.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -19,6 +21,7 @@ import java.util.List;
 public class TripServiceImpl implements TripService {
 
     private final TripClient tripClient;
+    private final AllowanceClient allowanceClient;
     private final UserService userService;
 
 
@@ -82,28 +85,27 @@ public class TripServiceImpl implements TripService {
 
     @Override
     public void saveMember(MemberDto dto) {
-        User user = userService.getUser(dto.getEmployeeId());
+
+        Allowance allowance = Allowance.builder()
+                .value(dto.getExpenses())
+                .country(Country.builder().id(dto.getCountryId()).build())
+        .build();
+
+        Allowance savedAllowance = allowanceClient.addAllowance(allowance).getContent();
+
+        MemberAllowance memberAllowance = MemberAllowance.builder()
+                .days(dto.getDays())
+                .allowance(Allowance.builder().id(savedAllowance.getId()).build())
+                .build();
 
         Member member = Member.builder()
                 .role(dto.getRole())
                 .user(User.builder().id(dto.getEmployeeId()).build())
                 .trip(Trip.builder().id(dto.getTripId()).build())
-//                .memberAllowances(List.of(MemberAllowance.builder()
-//                        .allowance(Allowance.builder()
-//                                .country(Country.builder()
-//                                        .id(dto.getCountryId()).build())
-//                                .value(dto.getExpenses())
-//                                .build())
-//                        .days(dto.getDays())
-//                        .build()))
                 .build();
 
+        member.addMemberAllowance(memberAllowance);
 
-        List<Member> members = user.getMembers() == null ? new ArrayList<>() : user.getMembers();
-
-        members.add(member);
-        user.setMembers(members);
-
-        userService.update(user);
+        tripClient.saveMember(member);
     }
 }

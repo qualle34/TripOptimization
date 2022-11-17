@@ -17,5 +17,6 @@ public class MemberEventHandler {
     public void handlePersonSave(Member member) {
         member.getTrip().setMembers(List.of(member));
         member.getUser().setMembers(List.of(member));
+        member.getMemberAllowances().forEach(ma -> ma.setMember(member));
     }
 }

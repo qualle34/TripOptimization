@@ -6,10 +6,7 @@ import com.qualle.trip.web.client.api.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "tripClient", url = "http://localhost:8080/")
 public interface TripClient {
@@ -31,4 +28,7 @@ public interface TripClient {
 
     @PostMapping(value = "/members")
     EntityModel<Member> saveMember(Member member);
+
+    @PatchMapping(value = "/members/{id}")
+    EntityModel<Member> updateMember(@PathVariable("id") Long id, Member member);
 }

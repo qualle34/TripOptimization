@@ -2,6 +2,7 @@ package com.qualle.trip.web.client.api;
 
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -18,4 +19,11 @@ public class Member {
     private List<MemberAllowance> memberAllowances;
     private List<Ticket> tickets;
     private String role;
+
+    public void addMemberAllowance(MemberAllowance ma){
+        if(memberAllowances == null){
+            memberAllowances = new ArrayList<>();
+        }
+        memberAllowances.add(ma);
+    }
 }
