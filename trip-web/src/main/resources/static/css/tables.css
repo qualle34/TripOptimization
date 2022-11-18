@@ -68,3 +68,7 @@ html, body {
 .nav p {
     margin: 0;
 }
+
+.center p {
+    color: #ffffff;
+}

@@ -52,7 +52,7 @@ public class UserController {
     public String getEditProfilePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "user-edit");
+        model.addAttribute("type", "null");
         model.addAttribute("user", userService.getUserWithDepartment(retrieveUserId(auth)));
 
         return "edit";
