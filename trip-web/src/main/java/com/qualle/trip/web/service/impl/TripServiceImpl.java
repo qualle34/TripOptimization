@@ -52,6 +52,11 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
+    public Member getMemberByUserAndTrip(Long userId, Long tripId) {
+        return tripClient.getMemberByUserAndTrip(userId, tripId).getContent();
+    }
+
+    @Override
     public void saveTrip(TripDto dto) {
 
         Trip trip = Trip.builder()

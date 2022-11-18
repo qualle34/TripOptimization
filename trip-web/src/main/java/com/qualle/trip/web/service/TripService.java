@@ -1,5 +1,6 @@
 package com.qualle.trip.web.service;
 
+import com.qualle.trip.web.client.api.Member;
 import com.qualle.trip.web.client.api.Trip;
 import com.qualle.trip.web.dto.MemberDto;
 import com.qualle.trip.web.dto.TripDto;
@@ -15,6 +16,8 @@ public interface TripService {
     List<Trip> getUserTrips(long userId);
 
     Trip getTrip(Long id);
+
+    Member getMemberByUserAndTrip(Long userId, Long tripId);
 
     void saveTrip(TripDto dto);
 

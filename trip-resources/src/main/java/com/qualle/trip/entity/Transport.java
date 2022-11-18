@@ -23,7 +23,7 @@ public class Transport {
 
     private String value;
 
-    @OneToMany(mappedBy = "type")
+    @OneToMany(mappedBy = "type", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
 }

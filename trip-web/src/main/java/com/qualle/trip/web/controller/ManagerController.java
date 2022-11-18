@@ -1,13 +1,13 @@
 package com.qualle.trip.web.controller;
 
 import com.qualle.trip.web.client.api.Member;
+import com.qualle.trip.web.client.api.Ticket;
 import com.qualle.trip.web.client.api.Trip;
 import com.qualle.trip.web.client.api.User;
 import com.qualle.trip.web.dto.MemberDto;
+import com.qualle.trip.web.dto.TicketDto;
 import com.qualle.trip.web.dto.TripDto;
-import com.qualle.trip.web.service.CountryService;
-import com.qualle.trip.web.service.TripService;
-import com.qualle.trip.web.service.UserService;
+import com.qualle.trip.web.service.*;
 import com.qualle.trip.web.service.security.SecurityUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -31,6 +31,8 @@ public class ManagerController {
     private final TripService tripService;
     private final UserService userService;
     private final CountryService countryService;
+    private final TicketService ticketService;
+    private final TransportService transportService;
 
     @GetMapping("/manager/trips")
     public String getTripsPage(@RequestParam(required = false) Integer page, Model model, @AuthenticationPrincipal SecurityUser auth) {
@@ -70,21 +72,23 @@ public class ManagerController {
         return "edit";
     }
 
-    @GetMapping("/manager/ticket/add") //todo
+    @GetMapping("/manager/ticket/add")
     public String getEditTicketPage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "manager-ticket-add");
+        model.addAttribute("type", "ticket-add");
+        model.addAttribute("trips", tripService.getTrips(0, 100));
         model.addAttribute("employees", userService.getUsers());
+        model.addAttribute("transports", transportService.getTransports());
 
         return "edit";
     }
 
-    @GetMapping("/manager/member/add") //todo
+    @GetMapping("/manager/member/add")
     public String getEditAllowancePage(Model model, @AuthenticationPrincipal SecurityUser auth) {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "manager-member-add");
+        model.addAttribute("type", "member-add");
         model.addAttribute("trips", tripService.getTrips(0, 100));
         model.addAttribute("employees", userService.getUsers());
         model.addAttribute("countries", countryService.getCountries(0, 100));
@@ -97,7 +101,7 @@ public class ManagerController {
         tripService.saveTrip(dto);
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "member");
+        model.addAttribute("type", "null");
 
         return "edit";
     }
@@ -107,7 +111,17 @@ public class ManagerController {
         tripService.saveMember(dto);
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
-        model.addAttribute("type", "member");
+        model.addAttribute("type", "null");
+
+        return "edit";
+    }
+
+    @PostMapping("/manager/ticket/add")
+    public String addTicket(Model model, @AuthenticationPrincipal SecurityUser auth, TicketDto dto) {
+        ticketService.addTicket(dto);
+
+        model.addAttribute("authorities", retrieveAuthorities(auth));
+        model.addAttribute("type", "null");
 
         return "edit";
     }

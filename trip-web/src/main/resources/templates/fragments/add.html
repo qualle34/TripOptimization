@@ -71,32 +71,34 @@
             <form class="contact-form validate-form" method="post" th:action="@{'/manager/ticket/add'}">
 
                 <div class="wrap-input validate-input">
-                    <span class="label-input">Название:</span>
-                    <input class="input" type="text" name="title" placeholder="Введите название*">
+                    <span class="label-input">Окуда:</span>
+                    <input class="input" type="text" name="from" placeholder="Введите место*">
                     <span class="focus-input"></span>
                 </div>
 
                 <div class="wrap-input validate-input">
-                    <span class="label-input">Мероприятие/Место:</span>
-                    <textarea class="input" name="place" placeholder="Мероприятие/Место.."></textarea>
+                    <span class="label-input">Куда:</span>
+                    <input class="input" type="text" name="to" placeholder="Введите место*">
                     <span class="focus-input"></span>
                 </div>
 
                 <div class="wrap-input validate-input">
-                    <span class="label-input">Описание:</span>
-                    <textarea class="input" name="description" placeholder="Описание..."></textarea>
+                    <span class="label-input">Когда:</span>
+                    <input class="input" name="date" placeholder="Введите дату (2001-01-01)..."/>
                     <span class="focus-input"></span>
                 </div>
 
                 <div class="wrap-input validate-input">
-                    <span class="label-input">Дата начала:</span>
-                    <input class="input" type="text" name="start" placeholder="Введите дату (2001-01-01)...">
+                    <span class="label-input">Цена билета:</span>
+                    <input class="input" name="price" placeholder="Введите цену..."/>
                     <span class="focus-input"></span>
                 </div>
 
                 <div class="wrap-input validate-input">
-                    <span class="label-input">Дата завершения:</span>
-                    <input class="input" type="text" name="end" placeholder="Введите дату (2001-01-01)...">
+                    <span class="label-input">Тип транспорта:</span>
+                    <select size="5" name="typeId">
+                        <option th:each="transport : ${transports}" th:value="${transport.id}" th:text="${transport.value}"></option>
+                    </select>
                     <span class="focus-input"></span>
                 </div>
 
@@ -104,6 +106,14 @@
                     <span class="label-input">Сотрудник:</span>
                     <select size="5" name="employeeId">
                         <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name + ' ' + employee.surname}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Командировка:</span>
+                    <select size="5" name="tripId">
+                        <option th:each="trip : ${trips}" th:value="${trip.id}" th:text="${trip.title}"></option>
                     </select>
                     <span class="focus-input"></span>
                 </div>

@@ -20,6 +20,9 @@ public interface TripClient {
     @GetMapping(value = "/trips/{id}")
     EntityModel<Trip> getTrip(@PathVariable("id") Long id);
 
+    @GetMapping(value = "/members/search/findMemberByUserAndTrip?userId={userId}&tripId={tripId}")
+    EntityModel<Member> getMemberByUserAndTrip(@PathVariable("userId") Long userId, @PathVariable("tripId") Long tripId);
+
     @PostMapping(value = "/trips")
     EntityModel<Trip> saveTrip(Trip trip);
 

@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Getter
@@ -26,15 +28,15 @@ public class Ticket {
     @Column(name = "\"to\"")
     private String to;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+    private LocalDate date;
 
     private double price;
 
     @ManyToOne
+    @RestResource(exported = false)
     private Transport type;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id")
+    @RestResource(exported = false)
+    @ManyToOne
     private Member member;
 }

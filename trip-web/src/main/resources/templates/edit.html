@@ -23,8 +23,8 @@
   <div class="content p-4">
 
     <div class="fl-table" th:if="${type == 'trip-add'}" th:insert="fragments/add :: trip"></div>
-    <div class="fl-table" th:if="${type == 'manager-ticket-add'}" th:insert="fragments/add :: ticket"></div>
-    <div class="fl-table" th:if="${type == 'manager-member-add'}" th:insert="fragments/add :: member"></div>
+    <div class="fl-table" th:if="${type == 'ticket-add'}" th:insert="fragments/add :: ticket"></div>
+    <div class="fl-table" th:if="${type == 'member-add'}" th:insert="fragments/add :: member"></div>
 
     <div class="fl-table" th:if="${type == 'trip-edit'}" th:insert="fragments/edit :: trip"></div>
     <div class="fl-table" th:if="${type == 'user-edit'}" th:insert="fragments/edit :: user"></div>
