@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UserService {
 
+    List<User> getUsers(int page, int size);
+
     List<User> getUsers();
 
     User getUser(Long id);

@@ -36,7 +36,6 @@ public class Ticket {
     @RestResource(exported = false)
     private Transport type;
 
-    @RestResource(exported = false)
     @ManyToOne
     private Member member;
 }

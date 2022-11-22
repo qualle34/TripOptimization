@@ -10,10 +10,12 @@ import com.qualle.trip.web.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -52,8 +54,28 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
+    public Trip getFullTrip(Long id) {
+        Trip trip = tripClient.getTrip(id).getContent();
+        List<Member> members = new ArrayList<>();
+
+        if (trip != null && trip.getMembers() != null) {
+            for (Member member : trip.getMembers()) {
+                members.add(getMember(member.getId()));
+            }
+            trip.setMembers(members);
+        }
+
+        return trip;
+    }
+
+    @Override
     public Member getMemberByUserAndTrip(Long userId, Long tripId) {
         return tripClient.getMemberByUserAndTrip(userId, tripId).getContent();
+    }
+
+    @Override
+    public Member getMember(Long id) {
+        return tripClient.getMember(id).getContent();
     }
 
     @Override
@@ -94,7 +116,7 @@ public class TripServiceImpl implements TripService {
         Allowance allowance = Allowance.builder()
                 .value(dto.getExpenses())
                 .country(Country.builder().id(dto.getCountryId()).build())
-        .build();
+                .build();
 
         Allowance savedAllowance = allowanceClient.addAllowance(allowance).getContent();
 

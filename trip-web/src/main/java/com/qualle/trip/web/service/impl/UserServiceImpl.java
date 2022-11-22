@@ -23,8 +23,13 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder encoder;
 
     @Override
+    public List<User> getUsers(int page, int size) {
+        return new ArrayList<>(userClient.getUsers(page, size, "").getContent());
+    }
+
+    @Override
     public List<User> getUsers() {
-        return new ArrayList<>(userClient.getUsers(0, 30, "").getContent());
+        return new ArrayList<>(userClient.getUsers(0, 20, "").getContent());
     }
 
     @Override

@@ -26,6 +26,7 @@ public class Member {
     private Long id;
 
     @ManyToOne
+    @RestResource(exported = false)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
@@ -37,6 +38,7 @@ public class Member {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<MemberAllowance> memberAllowances;
 
+    @RestResource(exported = false)
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 

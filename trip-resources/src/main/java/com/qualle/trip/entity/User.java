@@ -48,7 +48,6 @@ public class User {
     @PrimaryKeyJoinColumn
     private Passport passport;
 
-    @RestResource(exported = false)
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Member> members;
 

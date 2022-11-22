@@ -17,7 +17,11 @@ public interface TripService {
 
     Trip getTrip(Long id);
 
+    Trip getFullTrip(Long id);
+
     Member getMemberByUserAndTrip(Long userId, Long tripId);
+
+    Member getMember(Long id);
 
     void saveTrip(TripDto dto);
 

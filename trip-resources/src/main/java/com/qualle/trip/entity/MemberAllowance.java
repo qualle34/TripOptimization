@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,6 +19,7 @@ public class MemberAllowance implements Serializable {
 
     @Id
     @ManyToOne
+    @RestResource(exported = false)
     @JoinColumn(name = "allowance_id")
     private Allowance allowance;
 

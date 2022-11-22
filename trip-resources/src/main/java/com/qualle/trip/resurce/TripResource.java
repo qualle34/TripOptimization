@@ -14,4 +14,8 @@ public interface TripResource extends PagingAndSortingRepository<Trip, Long> {
     @RestResource(path = "findByUserId")
     @Query("SELECT t FROM Trip t JOIN FETCH t.members m JOIN FETCH m.user u WHERE u.id = :userId")
     List<Trip> findByUserId(Long userId);
+
+    @RestResource(path = "findFullById")
+    @Query("SELECT t FROM Trip t JOIN FETCH t.members m JOIN FETCH m.user u WHERE t.id = :id")
+    Trip findFullById(Long id);
 }

@@ -28,7 +28,7 @@ public class AdminController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "trips");
-        model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 2));
+        model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 20));
 
         return "tables";
     }
@@ -38,7 +38,7 @@ public class AdminController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "employees");
-        model.addAttribute("employees", userService.getUsers());
+        model.addAttribute("employees", userService.getUsers(clarifyPage(page), 20));
 
         return "tables";
     }
@@ -48,7 +48,7 @@ public class AdminController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "departments");
-        model.addAttribute("departments", departmentService.getDepartments(clarifyPage(page), 5));
+        model.addAttribute("departments", departmentService.getDepartments(clarifyPage(page), 20));
 
         return "tables";
     }
@@ -58,7 +58,7 @@ public class AdminController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "countries");
-        model.addAttribute("countries", countryService.getCountries(clarifyPage(page), 5));
+        model.addAttribute("countries", countryService.getCountries(clarifyPage(page), 20));
 
         return "tables";
     }
@@ -68,7 +68,7 @@ public class AdminController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "tickets");
-        model.addAttribute("tickets", ticketService.getTickets(clarifyPage(page), 5));
+        model.addAttribute("tickets", ticketService.getTickets(clarifyPage(page), 20));
 
         return "tables";
     }

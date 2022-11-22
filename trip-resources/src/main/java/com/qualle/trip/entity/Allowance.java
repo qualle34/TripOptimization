@@ -1,5 +1,6 @@
 package com.qualle.trip.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,11 +25,11 @@ public class Allowance {
 
     private double value;
 
-    @RestResource(exported = false)
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "allowance", cascade = CascadeType.ALL)
     private List<MemberAllowance> memberAllowances;
 

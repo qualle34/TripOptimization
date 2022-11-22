@@ -39,7 +39,7 @@ public class ManagerController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "trips");
-        model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 2));
+        model.addAttribute("trips", tripService.getTrips(clarifyPage(page), 20));
 
         return "tables";
     }
@@ -49,7 +49,7 @@ public class ManagerController {
 
         model.addAttribute("authorities", retrieveAuthorities(auth));
         model.addAttribute("type", "employees");
-        model.addAttribute("employees", userService.getUsers());
+        model.addAttribute("employees", userService.getUsers(clarifyPage(page), 20));
 
         return "tables";
     }
