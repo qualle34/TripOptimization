@@ -18,10 +18,10 @@ public class User {
     private String surname;
     private String patronymic;
     private LocalDate birthday;
-    private String gender;
     private Credentials credentials;
     private Department department;
     private List<Contact> contacts;
     private List<Member> members;
     private Role role;
+    private Gender gender;
 }

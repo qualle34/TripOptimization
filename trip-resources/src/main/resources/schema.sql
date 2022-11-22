@@ -1,14 +1,13 @@
 DROP TABLE IF EXISTS "user" CASCADE;
 DROP TABLE IF EXISTS "credentials" CASCADE;
 DROP TABLE IF EXISTS "role" CASCADE;
+DROP TABLE IF EXISTS "gender" CASCADE;
 DROP TABLE IF EXISTS "contact" CASCADE;
-DROP TABLE IF EXISTS "user_contact" CASCADE;
 DROP TABLE IF EXISTS "department" CASCADE;
 DROP TABLE IF EXISTS "passport" CASCADE;
 DROP TABLE IF EXISTS "member" CASCADE;
 DROP TABLE IF EXISTS "trip" CASCADE;
 DROP TABLE IF EXISTS "ticket" CASCADE;
-DROP TABLE IF EXISTS "member_ticket" CASCADE;
 DROP TABLE IF EXISTS "transport" CASCADE;
 DROP TABLE IF EXISTS "country" CASCADE;
 DROP TABLE IF EXISTS "allowance" CASCADE;
@@ -26,14 +25,20 @@ CREATE TABLE "user" (
                         "surname" varchar,
                         "patronymic" varchar,
                         "birthday" varchar,
-                        "gender" varchar,
                         "role_id" int8,
+                        "gender_id" int8,
                         "department_id" int8
 );
 
 CREATE TABLE "role" (
                         "id" bigserial PRIMARY KEY,
                         "value" varchar
+);
+
+CREATE TABLE "gender" (
+                        "id" bigserial PRIMARY KEY,
+                        "value" varchar,
+                        "full_value" varchar
 );
 
 CREATE TABLE "contact" (
@@ -120,6 +125,8 @@ ALTER TABLE "passport" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 ALTER TABLE "user" ADD FOREIGN KEY ("department_id") REFERENCES "department" ("id");
 
 ALTER TABLE "user" ADD FOREIGN KEY ("role_id") REFERENCES "role" ("id");
+
+ALTER TABLE "user" ADD FOREIGN KEY ("gender_id") REFERENCES "gender" ("id");
 
 ALTER TABLE "contact" ADD FOREIGN KEY ("user_id") REFERENCES "user" ("id");
 

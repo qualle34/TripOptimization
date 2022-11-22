@@ -30,8 +30,6 @@ public class User {
 
     private LocalDate birthday;
 
-    private String gender;
-
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Department department;
@@ -39,6 +37,10 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "role_id")
     private Role role;
+
+    @ManyToOne
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn

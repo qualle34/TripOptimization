@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
                 .surname(registration.getSurname())
                 .patronymic(registration.getPatronymic())
                 .birthday(LocalDate.parse(registration.getBirthday()))
-                .gender(registration.getGender())
+                .gender(Gender.builder().id(registration.getGender().equals("M") ? 1 : 2).build()) // todo
                 .credentials(Credentials.builder()
                         .login(registration.getLogin())
                         .password(encoder.encode(registration.getPassword()))
