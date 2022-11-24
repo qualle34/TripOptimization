@@ -109,13 +109,13 @@ INSERT INTO "user"(gender_id, name, surname, patronymic, birthday, role_id, depa
 INSERT INTO "user"(gender_id, name, surname, patronymic, birthday, role_id, department_id) values(1, 'Василиса', 'Егорова', 'Кузьмина', '1981-05-22', 2, 1);
 INSERT INTO "user"(gender_id, name, surname, patronymic, birthday, role_id, department_id) values(2, 'Валерия', 'Щербаков', 'Титов', '1981-05-22', 2, 1);
 
-INSERT INTO "credentials"(user_id, login, password) values(1, 'andry23154', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(2, 'slon', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(3, 'dimatank', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(4, 'elena22', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(5, 'annamanager', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(6, 'user', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
-INSERT INTO "credentials"(user_id, login, password) values(7, 'admin', '$2a$10$dt1Jmg.w/sgjVSo2u7Vks.CD6wOGe2PqX.vB9uVPfVswyIeS99/46');
+INSERT INTO "credentials"(user_id, login, password) values(1, 'annamanager', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
+INSERT INTO "credentials"(user_id, login, password) values(2, 'user', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
+INSERT INTO "credentials"(user_id, login, password) values(3, 'admin', '$2a$10$dt1Jmg.w/sgjVSo2u7Vks.CD6wOGe2PqX.vB9uVPfVswyIeS99/46');
+INSERT INTO "credentials"(user_id, login, password) values(4, 'andry23154', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
+INSERT INTO "credentials"(user_id, login, password) values(5, 'slon', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
+INSERT INTO "credentials"(user_id, login, password) values(6, 'dimatank', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
+INSERT INTO "credentials"(user_id, login, password) values(7, 'elena22', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
 INSERT INTO "credentials"(user_id, login, password) values(8, 'user8', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
 INSERT INTO "credentials"(user_id, login, password) values(9, 'user9', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
 INSERT INTO "credentials"(user_id, login, password) values(10, 'user10', '$2a$10$w9Xvn7V.w6XTMoCrLyPIX.X/gnSaSavaRhO2yVEFNwrlb4kqj4jhe');
@@ -547,10 +547,10 @@ INSERT INTO trip(title, description, place, date_start, date_end, expenses) valu
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Healthcare', 'Test text: Hermione', 'Хабаровск', '2019-09-17 18:32:45-00', '2024-08-02 03:40:49-00', 137);
 INSERT INTO trip(title, description, place, date_start, date_end, expenses) values('Accounting', 'Test text: Deianeira', 'Магнитогорск', '2020-04-23 15:20:56-00', '2021-10-26 06:40:29-00', 60);
 
-INSERT INTO member(user_id, trip_id, role) values(6, 1, 'Product Administrator');
-INSERT INTO member(user_id, trip_id, role) values(6, 2, 'Direct Technician');
-INSERT INTO member(user_id, trip_id, role) values(6, 3, 'Construction Engineer');
-INSERT INTO member(user_id, trip_id, role) values(6, 4, 'Engineer');
+INSERT INTO member(user_id, trip_id, role) values(2, 1, 'Product Administrator');
+INSERT INTO member(user_id, trip_id, role) values(2, 2, 'Direct Technician');
+INSERT INTO member(user_id, trip_id, role) values(2, 3, 'Construction Engineer');
+INSERT INTO member(user_id, trip_id, role) values(2, 4, 'Engineer');
 INSERT INTO member(user_id, trip_id, role) values(7, 7, 'Engineer');
 INSERT INTO member(user_id, trip_id, role) values(8, 8, 'Engineer');
 INSERT INTO member(user_id, trip_id, role) values(9, 9, 'Engineer');

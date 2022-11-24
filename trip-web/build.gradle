@@ -9,7 +9,7 @@ version = '0.0.1'
 sourceCompatibility = '15'
 
 repositories {
-mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
@@ -21,6 +21,15 @@ dependencies {
     implementation 'io.github.openfeign:feign-okhttp:12.0'
     implementation 'org.apache.poi:poi-ooxml:5.2.3'
 
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+}
+
+test {
+    useJUnitPlatform()
 }
