@@ -84,7 +84,7 @@ public class UserServiceImpl implements UserService {
                 .surname(dto.getSurname())
                 .patronymic(dto.getPatronymic())
                 .birthday(LocalDate.parse(dto.getBirthday()))
-                .gender(dto.getGender())
+                .gender(Gender.builder().id(dto.getGender().equals("M") ? 1L : 2L).build())
                 .build();
 
         userClient.updateUser(dto.getId(), user);

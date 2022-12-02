@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="box" th:fragment="report">
+
+    <div class="container-contact">
+
+        <div class="wrap-form">
+            <div class="contact-form-title">
+                <span class="contact-form-title-2"> Заполните все поля! </span>
+            </div>
+
+            <form class="contact-form validate-form" method="post" th:action="@{'/admin/report/create'}">
+
+                <div class="wrap-input validate-input">
+                    <span class="label-input">Командировка:</span>
+                    <select size="5" name="tripId">
+                        <option th:each="trip : ${trips}" th:value="${trip.id}" th:text="${trip.title}"></option>
+                    </select>
+                    <span class="focus-input"></span>
+                </div>
+
+                <div class="container-contact-form-btn">
+                    <button class="contact-form-btn" type="submit">
+                        <span>ОК</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -17,5 +17,5 @@ public class SimpleUser {
     private String surname;
     private String patronymic;
     private LocalDate birthday;
-    private String gender;
+    private Gender gender;
 }
