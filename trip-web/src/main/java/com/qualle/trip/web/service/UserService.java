@@ -17,6 +17,8 @@ public interface UserService {
 
     User getUserByLogin(String login);
 
+    User getUserByMemberId(Long memberId);
+
     void create(RegistrationDto user);
 
     void update(RegistrationDto user);

@@ -38,7 +38,6 @@ public class Trip {
 
     private double expenses;
 
-    @RestResource(exported = false)
     @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Member> members;
 

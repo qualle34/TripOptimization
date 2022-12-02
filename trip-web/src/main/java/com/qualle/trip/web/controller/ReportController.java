@@ -44,7 +44,10 @@ public class ReportController {
     @PostMapping("/admin/report/create")
     public ResponseEntity<Resource> download(CreateReportDto dto) throws IOException {
 
-        Trip trip = tripService.getFullTrip(dto.getTripId());
+        Trip trip = tripService.getTrip(dto.getTripId());
+        trip.setMembers(tripService.getMembersByTrip(dto.getTripId()));
+
+        trip.getMembers().forEach(m -> m.setUser(userService.getUserByMemberId(m.getId())));
 
         File file = reportService.makeReport(trip);
 

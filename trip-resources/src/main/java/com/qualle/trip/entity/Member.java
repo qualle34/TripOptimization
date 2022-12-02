@@ -26,7 +26,6 @@ public class Member {
     private Long id;
 
     @ManyToOne
-    @RestResource(exported = false)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 

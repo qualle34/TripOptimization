@@ -36,6 +36,7 @@ public class Ticket {
     @RestResource(exported = false)
     private Transport type;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
     private Member member;
 }

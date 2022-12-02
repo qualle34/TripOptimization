@@ -25,6 +25,7 @@ public class Allowance {
 
     private double value;
 
+    @RestResource(exported = false)
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;

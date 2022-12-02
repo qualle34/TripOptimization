@@ -13,4 +13,7 @@ public interface UserResource extends PagingAndSortingRepository<User, Long> {
     @Query("SELECT u FROM User u JOIN FETCH u.credentials c WHERE c.login LIKE :login")
     User findUserByLogin(String login);
 
+    @RestResource(path = "findUserByMemberId")
+    @Query("SELECT u FROM User u JOIN FETCH u.members m WHERE m.id = :memberId")
+    User findUserByMemberId(long memberId);
 }

@@ -74,6 +74,13 @@ public class TripServiceImpl implements TripService {
     }
 
     @Override
+    public List<Member> getMembersByTrip(Long tripId) {
+        CollectionModel<Member> members = tripClient.getMembersByTrip(tripId);
+
+        return new ArrayList<>(members.getContent());
+    }
+
+    @Override
     public Member getMember(Long id) {
         return tripClient.getMember(id).getContent();
     }

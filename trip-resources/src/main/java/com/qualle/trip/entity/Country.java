@@ -24,7 +24,6 @@ public class Country {
 
     private String value;
 
-    @RestResource(exported = true)
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
     private List<Allowance> allowances;
 }

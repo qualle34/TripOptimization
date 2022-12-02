@@ -21,6 +21,9 @@ public interface UserClient {
     @GetMapping(value = "/users/search/findUserByLogin?login={login}")
     EntityModel<User> getUserByLogin(@PathVariable("login") String login);
 
+    @GetMapping(value = "/users/search/findUserByMemberId?memberId={memberId}")
+    EntityModel<User> getUserByMemberId(@PathVariable("memberId") Long memberId);
+
     @PostMapping(value = "/users")
     EntityModel<User> saveUser(User user);
 

@@ -54,6 +54,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByMemberId(Long memberId) {
+        return userClient.getUserByMemberId(memberId).getContent();
+    }
+
+    @Override
     public void create(RegistrationDto registration) {
 
         User user = User.builder()

@@ -23,6 +23,9 @@ public interface TripClient {
     @GetMapping(value = "/members/search/findMemberByUserAndTrip?userId={userId}&tripId={tripId}")
     EntityModel<Member> getMemberByUserAndTrip(@PathVariable("userId") Long userId, @PathVariable("tripId") Long tripId);
 
+    @GetMapping(value = "/members/search/findMembersByTrip?tripId={tripId}")
+    CollectionModel<Member> getMembersByTrip(@PathVariable("tripId") Long tripId);
+
     @GetMapping(value = "/members/{id}")
     EntityModel<Member> getMember(@PathVariable("id") Long id);
 

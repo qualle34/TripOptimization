@@ -21,6 +21,8 @@ public interface TripService {
 
     Member getMemberByUserAndTrip(Long userId, Long tripId);
 
+    List<Member> getMembersByTrip(Long tripId);
+
     Member getMember(Long id);
 
     void saveTrip(TripDto dto);
