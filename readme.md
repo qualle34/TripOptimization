@@ -1,4 +1,4 @@
-Web application for document management of the business trip department
+# Web application for document management of the business trip department
 
 The home page of website
 ![Home page!](docs/home.png)
