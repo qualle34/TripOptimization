@@ -37,7 +37,7 @@ public class ServiceUtil {
         List<String> output = new ArrayList<>();
 
         for (MemberAllowance allowance : dto) {
-            String info = allowance.getAllowance().getCountry() + " - " + allowance.getAllowance().getValue() * allowance.getDays();
+            String info = allowance.getAllowance().getCountry().getValue() + " - " + allowance.getAllowance().getValue() * allowance.getDays();
             output.add(info);
         }
         return output;
